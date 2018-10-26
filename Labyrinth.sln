@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labyrinth", "Maze\Labyrinth.csproj", "{72996DB1-FA6B-47D6-B745-55AF96050777}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labyrinth", "Labyrinth\Labyrinth.csproj", "{72996DB1-FA6B-47D6-B745-55AF96050777}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{7A357AEE-493D-4AA2-81B7-D85C60AEC651}"
 EndProject
