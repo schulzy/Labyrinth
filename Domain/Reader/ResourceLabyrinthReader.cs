@@ -1,20 +1,43 @@
 ﻿using System;
+using System.IO;
+using System.Reflection;
 using Domain.Interface;
+using Microsoft.Practices.Unity;
 
 namespace Domain.Reader
 {
-    internal class ResourceLabyrinthReader : ILabyrinthReader
+    internal class ResourceLabyrinthReader : IResourceLabyrinthReader
     {
-        private string _resourcePath;
-
-        public ResourceLabyrinthReader(string resourcePath)
+        private string _resourceName;
+        private string _resourceAssembly;
+       
+        public void Initialize(string resourceAssembly, string resourceName)
         {
-            _resourcePath = resourcePath;
+            _resourceName = resourceName;
+            _resourceAssembly = resourceAssembly;
         }
 
-        public void Read()
+        public string Read()
         {
-            throw new NotImplementedException();
+            string result;
+            var assembly = Assembly.Load(_resourceAssembly);
+            using (Stream stream = assembly.GetManifestResourceStream(_resourceName))
+            {
+                if (stream == null)
+                    throw new ArgumentNullException($"The stream is not set");
+                
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    result = reader.ReadToEnd();
+                }
+            }
+
+            return result;
         }
+    }
+
+    internal interface IResourceLabyrinthReader : ILabyrinthReader
+    {
+        void Initialize(string resourceAssembly, string resourceName);
     }
 }

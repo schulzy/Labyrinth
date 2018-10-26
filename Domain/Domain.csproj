@@ -53,13 +53,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\ILabyrinthManager.cs" />
+    <Compile Include="LabyrinthManager.cs" />
     <Compile Include="Modul\Register.cs" />
     <Compile Include="Interface\IPathFinder.cs" />
     <Compile Include="PathFinder\ParalellStrategy\ParalellPathFinder.cs" />
     <Compile Include="Reader\FileLabyrinthReader.cs" />
     <Compile Include="Interface\ILabyrinthReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Interface\IMapCreator.cs" />
+    <Compile Include="Reader\MapCreator.cs" />
     <Compile Include="Reader\ResourceLabyrinthReader.cs" />
+    <Compile Include="Size.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Resources\Resources.csproj">

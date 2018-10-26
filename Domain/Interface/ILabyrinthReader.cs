@@ -2,6 +2,6 @@
 {
     public interface ILabyrinthReader
     {
-        void Read();
+        string Read();
     }
 }

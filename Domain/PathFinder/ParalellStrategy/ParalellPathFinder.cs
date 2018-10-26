@@ -1,6 +1,12 @@
-﻿namespace Domain.PathFinder.ParalellStrategy
+﻿using Domain.Interface;
+
+namespace Domain.PathFinder.ParalellStrategy
 {
-    class ParalellPathFinder
+    internal class ParalellPathFinder : IPathFinder
     {
+        public void FindPath()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

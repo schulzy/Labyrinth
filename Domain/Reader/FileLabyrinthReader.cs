@@ -5,7 +5,7 @@ namespace Domain.Reader
 {
     internal class FileLabyrinthReader : ILabyrinthReader
     {
-        public void Read()
+        public string Read()
         {
             throw new NotImplementedException();
         }
