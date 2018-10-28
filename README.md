@@ -1,2 +1,2 @@
 # Labyrinth
-Find the shortest path in the labyrinth
+Find the path in the labyrinth
