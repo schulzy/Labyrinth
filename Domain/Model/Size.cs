@@ -1,4 +1,4 @@
-﻿namespace Domain
+﻿namespace Domain.Model
 {
     internal struct Size
     {
@@ -16,6 +16,10 @@
             return emptySize;
         }
 
-        
+        public Size(int column, int row)
+        {
+            Column = column;
+            Row = row;
+        }
     }
 }

@@ -44,9 +44,11 @@
     <Compile Include="Constants\AssemblyConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Levels\Level1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Levels\Level2.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

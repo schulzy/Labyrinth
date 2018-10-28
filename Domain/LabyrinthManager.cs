@@ -9,6 +9,7 @@ namespace Domain
     public class LabyrinthManager : ILabyrinthManager
     {
         private readonly IUnityContainer _diContainer;
+        private IMapCreator _mapCreator;
 
         public LabyrinthManager(IUnityContainer diContainer)
         {
@@ -19,20 +20,18 @@ namespace Domain
         {
             if (AssemblyConstants.Levels.Length < level)
                 throw new ArgumentOutOfRangeException($"There is no level {level}");
-            
-            var mapCreator = _diContainer.Resolve<IMapCreator>();
-            var labyrinthReader = _diContainer.Resolve<ILabyrinthReader>();
-            (labyrinthReader as IResourceLabyrinthReader)?.Initialize(AssemblyConstants.AssemblyName, AssemblyConstants.Levels[level - 1]);
-            mapCreator.Initialize(labyrinthReader);
 
-            var map = mapCreator.Map;
-            
+            _mapCreator = _diContainer.Resolve<IMapCreator>();
+            var labyrinthReader = _diContainer.Resolve<ILabyrinthReader>();
+            (labyrinthReader as IResourceLabyrinthReader)?.Initialize(AssemblyConstants.AssemblyName,
+                AssemblyConstants.Levels[level - 1]);
+            _mapCreator.Initialize(labyrinthReader);
         }
 
         public void FindPath()
         {
             var pathFinder = _diContainer.Resolve<IPathFinder>();
-            pathFinder.FindPath();
+            pathFinder.FindPath(_mapCreator);
         }
     }
 }

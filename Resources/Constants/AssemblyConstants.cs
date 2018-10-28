@@ -12,7 +12,8 @@ namespace Resources.Constants
 
         public static string[] Levels =
         {
-            "Resources.Levels.Level1.txt"
+            "Resources.Levels.Level1.txt",
+            "Resources.Levels.Level2.txt"
         };
     }
 }

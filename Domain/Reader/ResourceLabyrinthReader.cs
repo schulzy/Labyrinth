@@ -2,15 +2,14 @@
 using System.IO;
 using System.Reflection;
 using Domain.Interface;
-using Microsoft.Practices.Unity;
 
 namespace Domain.Reader
 {
     internal class ResourceLabyrinthReader : IResourceLabyrinthReader
     {
-        private string _resourceName;
         private string _resourceAssembly;
-       
+        private string _resourceName;
+
         public void Initialize(string resourceAssembly, string resourceName)
         {
             _resourceName = resourceName;
@@ -21,12 +20,12 @@ namespace Domain.Reader
         {
             string result;
             var assembly = Assembly.Load(_resourceAssembly);
-            using (Stream stream = assembly.GetManifestResourceStream(_resourceName))
+            using (var stream = assembly.GetManifestResourceStream(_resourceName))
             {
                 if (stream == null)
                     throw new ArgumentNullException($"The stream is not set");
-                
-                using (StreamReader reader = new StreamReader(stream))
+
+                using (var reader = new StreamReader(stream))
                 {
                     result = reader.ReadToEnd();
                 }

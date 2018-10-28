@@ -13,7 +13,7 @@ namespace Labyrinth
             register.RegisterAll(container);
 
             var manager = container.Resolve<ILabyrinthManager>();
-            manager.LoadLevel(1);
+            manager.LoadLevel(2);
             manager.FindPath();
         }
     }

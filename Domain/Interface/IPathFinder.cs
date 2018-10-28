@@ -1,7 +1,7 @@
 ﻿namespace Domain.Interface
 {
-    interface IPathFinder
+    internal interface IPathFinder
     {
-        void FindPath();
+        void FindPath(IMapCreator mapCreator);
     }
 }
