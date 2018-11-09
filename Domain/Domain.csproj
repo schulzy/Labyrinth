@@ -59,7 +59,9 @@
     <Compile Include="Model\Point.cs" />
     <Compile Include="Modul\Register.cs" />
     <Compile Include="Interface\IPathFinder.cs" />
-    <Compile Include="PathFinder\SlowStrategy\Direction.cs" />
+    <Compile Include="PathFinder\Extensions.cs" />
+    <Compile Include="PathFinder\RightWall\TouchWall.cs" />
+    <Compile Include="PathFinder\Direction.cs" />
     <Compile Include="PathFinder\SlowStrategy\SlowPathFinder.cs" />
     <Compile Include="Reader\FileLabyrinthReader.cs" />
     <Compile Include="Interface\ILabyrinthReader.cs" />

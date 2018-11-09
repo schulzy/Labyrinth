@@ -34,14 +34,14 @@ namespace Domain.PathFinder.SlowStrategy
 
         private void StepThere(Point positon, Direction direction)
         {
-            var nextPoint = GetPoint(positon, direction);
+            var nextPoint = positon.GetNextPoint(direction);
             if (!_deadEnd.Contains(nextPoint) && _pointsHash.Add(nextPoint))
                 if (_map.GetPosition(nextPoint))
                 {
                     _pointsStack.Push(direction);
-                    Console.WriteLine(nextPoint);
                     if (_map.FinishPosition == nextPoint)
                     {
+                        // this is a hardcoded shit, it must eliminate
                         WriteOutThePath();
                     }
                     else
@@ -60,6 +60,7 @@ namespace Domain.PathFinder.SlowStrategy
                 }
         }
 
+        // TODO: Eliminate
         private void WriteOutThePath()
         {
             foreach (var element in _pointsStack)
@@ -68,27 +69,6 @@ namespace Domain.PathFinder.SlowStrategy
                     element + " ");
         }
 
-        private Point GetPoint(Point positon, Direction direction)
-        {
-            switch (direction)
-            {
-                case Direction.Up:
-                    positon.SetY(positon.Y - 1);
-                    break;
-                case Direction.Down:
-                    positon.SetY(positon.Y + 1);
-                    break;
-                case Direction.Left:
-                    positon.SetX(positon.X - 1);
-                    break;
-                case Direction.Right:
-                    positon.SetX(positon.X + 1);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(direction));
-            }
-
-            return positon;
-        }
+        
     }
 }

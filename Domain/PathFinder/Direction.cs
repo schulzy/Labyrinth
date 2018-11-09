@@ -1,4 +1,4 @@
-﻿namespace Domain.PathFinder.SlowStrategy
+﻿namespace Domain.PathFinder
 {
     internal enum Direction
     {
